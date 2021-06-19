@@ -1,0 +1,77 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 50vw;
+  margin-top: 35px;
+  box-shadow: 4px 4px 4px 8px #999;
+  padding: 20px;
+  display: table;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 1em;
+  font: 1em sans-serif;
+  border: 1px solid #999;
+  display: inline-block;
+}
+#textMensagem {
+  width: 96%;
+  height: 290px;
+  margin-bottom: 1em;
+  font: 1em sans-serif;
+  border: 1px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: scroll;
+  padding: 20px;
+}
+
+label {
+  font-weight: bold;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+button {
+  background-color: white;
+  border: 1px solid rgb(21, 4, 98);
+  color: rgb(21, 4, 98);
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 3px;
+  margin-bottom: 15px;
+}
+
+input:focus {
+  border-color: rgb(21, 4, 98);
+}
+
+button:hover {
+  background-color: rgb(21, 4, 98);
+  color: white;
+  cursor: pointer;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 40vw;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 8px;
+  margin-top: 5px;
+}

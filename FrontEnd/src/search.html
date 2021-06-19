@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css" type="text/css">  
+</head>
+<body>
+    <div class="row">
+        <div class="card">
+            <label for="inputEmail"> E-mail:</label>
+            <input type="text" id="inputMail">
+
+            <label for="textMensagem"> Mensagens:</label>
+            <div name="textMensagem" id="textMensagem"></div>
+
+            <button id="btn-search">Buscar</button>
+            <a href="/"><button>Voltar</button></a>
+        </div>
+    </div>
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script>
+        var api = {
+          search: function (valor){
+            try{
+              $.ajax({
+                url: `https://localhost:5001/messages/mail/${valor}`,
+                data: null,
+                type: 'GET',
+                contentType: 'application/json',
+                dataType: 'json',
+                success: (response) => {
+                    var msg = '';
+                    $(response).each((index, res) =>{
+                      msg += `<div class="message"><h1>${res.nickname}</h1><h2>${res.message}</h2></div>`;
+                    });
+
+                    $('#textMensagem').empty().append(msg);
+                }
+              });
+            } catch(e){
+              console.log('Erro ao enviar requisição ajax. Detalhes ' + e.message);
+            }
+          },
+
+        }
+
+        $('#btn-search').click(() =>{
+            api.search($('#inputMail').val());
+            })
+
+    </script>
+</body>
+</html>
